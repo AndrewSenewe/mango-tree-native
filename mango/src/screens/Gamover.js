@@ -16,8 +16,8 @@ class Gameover extends Component {
   render () {
     console.log(this.props);
     return (
-      <View>
-        <Text>
+      <View style={styles.viewParent}>
+        <Text style={styles.welcomeText}>
          {this.props.treeStatus.treeName} has made to its last day!
         </Text>
         <Image source={require('../assets/4.png')} />
@@ -25,6 +25,26 @@ class Gameover extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  viewParent: {
+    flex:1,
+    flexDirection: 'column',
+    backgroundColor: '#5b8940'
+  },
+  textInput: {
+    backgroundColor: '#ecf2de',
+    height: 40
+  },
+  welcomeText: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 40,
+    alignSelf: 'center',
+    marginTop: 20,
+    marginBottom: 20
+  },
+})
 
 const mapStateToProps = (state) => {
   return {
