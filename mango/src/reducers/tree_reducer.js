@@ -8,7 +8,7 @@ const initialState = {
 export default (state=initialState, action) =>{
   switch(action.type){
     case 'ADD_TREE': action.payload.taskName;
-      return {...state.todos, todos: action.payload};
+      return {...state.todos, treeInfo: action.payload};
     default:
       return state
     }

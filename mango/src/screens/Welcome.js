@@ -8,8 +8,9 @@ import {
   Button,
   TouchableHighlight
 } from 'react-native';
-
 import { connect } from 'react-redux';
+
+import {addTree} from '../actions'
 
 class Welcome extends Component {
   constructor () {
@@ -38,7 +39,10 @@ class Welcome extends Component {
           onChangeText={(text) => this.setState({treeName: text})}
         />
         <Button
-        onPress={() => {navigate('Tree')}}
+        onPress={(param) => {
+          this.props.startTree(this.state.treeName)
+          navigate('Tree');
+        }}
         title = "Start"
         />
       </View>
@@ -66,10 +70,10 @@ const styles = StyleSheet.create({
   },
 })
 
-const mapStateToProps = (state) => {
-  console.log(state);
+const mapDispatchToProps = (dispatch) => {
   return {
-    cards: state
+    startTree: (param) => dispatch(addTree(param))
+
   }
 }
-export default connect(mapStateToProps, null)(Welcome)
+export default connect(null, mapDispatchToProps)(Welcome)
