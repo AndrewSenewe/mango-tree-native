@@ -1,8 +1,9 @@
-export const addTodo = (taskName) => {
+export const addTree = (tree) => {
   return {
-    type: 'ADD_TODO',
+    type: 'ADD_TREE',
     payload: {
-      taskName: taskName,
+      treeName: tree,
+      treeAge: 0
     }
   }
 }

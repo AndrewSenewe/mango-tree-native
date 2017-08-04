@@ -1,20 +1,15 @@
 const initialState = {
-  todos: [{id: 1, taskName: 'coding'}]
+  treeInfo: {
+    treeName: 'Unknown',
+    treeAge: NaN
+  }
 }
 
 export default (state=initialState, action) =>{
-  console.log('-----------------'+ action.type)
   switch(action.type){
-    case 'ADD_TODO':
-      console.log('--------------------2')
-      const lastTodo = state.todos[state.todos.length - 1];
-      const lastId   = lastTodo.id + 1;
-      const newTodo  = {id: id, taskName: action.payload.taskName};
-      console.log('--------------------3')
-      return {...state.todos, todos: state.todos.concat(newTodo)}
-
-  }
-
-  return state
-
+    case 'ADD_TREE': action.payload.taskName;
+      return {...state.todos, todos: action.payload};
+    default:
+      return state
+    }
 }

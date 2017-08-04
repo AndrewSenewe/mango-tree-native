@@ -24,8 +24,8 @@ class Welcome extends Component {
     const navigate = this.props.navigation.navigate;
     return (
       <View style={styles.viewParent}>
-        <Text>
-          asdg
+        <Text style={styles.welcomeText}>
+          Welcome!
         </Text>
         <TextInput
           style={styles.textInput}
@@ -39,7 +39,7 @@ class Welcome extends Component {
         />
         <Button
         onPress={() => {navigate('Tree')}}
-        title = "Tree"
+        title = "Start"
         />
       </View>
     )
@@ -50,17 +50,26 @@ const styles = StyleSheet.create({
   viewParent: {
     flex:1,
     flexDirection: 'column',
-    backgroundColor: '#689302'
+    backgroundColor: '#5b8940'
   },
   textInput: {
     backgroundColor: '#ecf2de',
     height: 40
   },
-  authorText: {
+  welcomeText: {
     color: 'black',
-    fontWeight: 'normal',
-    fontSize: 15,
+    fontWeight: 'bold',
+    fontSize: 40,
+    alignSelf: 'center',
+    marginTop: 20,
+    marginBottom: 20
   },
 })
 
-export default Welcome
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    cards: state
+  }
+}
+export default connect(mapStateToProps, null)(Welcome)
