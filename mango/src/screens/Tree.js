@@ -6,13 +6,16 @@ import {
 	ListView,
   TextInput,
   Image,
+  Button,
   TouchableHighlight
 } from 'react-native';
 
 import { connect } from 'react-redux';
 
 class Tree extends Component {
+
   render () {
+    const navigate = this.props.navigation.navigate;
     console.log(this.props);
     return (
       <View>
@@ -20,6 +23,19 @@ class Tree extends Component {
          Welcome to the world {this.props.treeStatus.treeName}
         </Text>
         <Image source={require('../assets/0.png')} />
+        <Button
+        onPress={(param) => {
+          navigate('Gameover');
+        }}
+        title = "Emulate"
+        />
+        <Button
+        onPress={() => {
+          navigate('Gameover');
+        }}
+        title= "Harvest"
+        disabled={true}
+        />
       </View>
     )
   }
